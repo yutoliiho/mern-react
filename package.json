@@ -1,28 +1,27 @@
 {
-  "name": "mern-5-10-(2)",
+  "name": "mern-react",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "client-install": "cd client && npm install",
     "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "server": "cd backend && nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yutoliiho/mern-react.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "concurrently": "^5.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.13",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+  "bugs": {
+    "url": "https://github.com/yutoliiho/mern-react/issues"
   },
+  "homepage": "https://github.com/yutoliiho/mern-react#readme",
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "nodemon": "^2.0.3"
   }
 }

@@ -1,3 +1,7 @@
+"client": "npm start --prefix client",
+~
+"client": "cd client && npm start",
+
 https://www.youtube.com/watch?v=PBTYxXADG_k&list=PLillGF-RfqbbiTGgA77tGO426V3hRF9iE
 
 # ================ backend install ================
@@ -35,6 +39,10 @@ line 7:
 "client": "npm start --prefix client",
 "dev": "concurrently \"npm run server\" \"npm run client\""
 },
+
+"scripts": {
+"dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" "
+}
 
 <!-- setup mongoDB backend: config/keys.js -->
 
@@ -418,3 +426,11 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const ITEM_LOADING = 'ITEM_LOADING';
 // client/src/actions/types.js
+
+<!-- // trouble shoot:  -->
+
+# address in use
+
+$ sudo lsof -i :5000
+$ kill -9 {PID}
+means: (kill -9 47291)
