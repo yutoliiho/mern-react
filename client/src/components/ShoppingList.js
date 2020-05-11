@@ -3,30 +3,31 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { v4 as uuidv4 } from 'uuid';
 
-// import { connect } from 'react-redux';
-// import { getItems, deleteItem, addItem } from '../actions/itemActions';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getItems, deleteItem, addItem } from '../actions/itemActions';
+import PropTypes from 'prop-types';
 
 class ShoppingList extends Component {
-  //   componentDidMount() {
-  //     this.props.getItems();
-  //   }
+  componentDidMount() {
+    this.props.getItems();
+  }
   //   onDeleteClick = (id) => {
   //     this.props.deleteItem(id);
   //   };
   //   onAddClick = () => {
   //     this.props.addItem();
   //   };
-  state = {
-    items: [
-      { id: uuidv4(), name: 'Eggs' },
-      { id: uuidv4(), name: 'Milk' },
-      { id: uuidv4(), name: 'Steak' },
-      { id: uuidv4(), name: 'Water' },
-    ],
-  };
+
+  // state = {
+  //   items: [
+  //     { id: uuidv4(), name: 'Eggs' },
+  //     { id: uuidv4(), name: 'Milk' },
+  //     { id: uuidv4(), name: 'Steak' },
+  //     { id: uuidv4(), name: 'Water' },
+  //   ],
+  // };
   render() {
-    const { items } = this.state;
+    const { items } = this.props.item;
     return (
       <Container>
         <Button
@@ -72,38 +73,14 @@ class ShoppingList extends Component {
     );
   }
 }
-// ShoppingList.propTypes = {
-//   getItems: PropTypes.func.isRequired,
-//   item: PropTypes.object.isRequired,
-// };
-// const mapStateToProps = (state) => ({
-//   item: state.item,
-// });
-// export default connect(mapStateToProps, { getItems, deleteItem, addItem })(
-//   ShoppingList
-// );
+ShoppingList.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  item: state.item,
+});
+export default connect(mapStateToProps, { getItems })(ShoppingList);
 
-export default ShoppingList;
-
-///
-// <Container>
-// <ListGroup>
-//   <TransitionGroup className='shopping-list'>
-//     {items.map(({ _id, name }) => (
-//       <CSSTransition key={_id} timeout={500} classNames='fade'>
-//         <ListGroupItem>
-//           <Button
-//             className='remove-btn'
-//             color='danger'
-//             size='sm'
-//             onClick={this.onDeleteClick.bind(this, _id)}
-//           >
-//             &times;
-//           </Button>
-//           {name}
-//         </ListGroupItem>
-//       </CSSTransition>
-//     ))}
-//   </TransitionGroup>
-// </ListGroup>
-// </Container>
+// export default ShoppingList;
+// , deleteItem, addItem

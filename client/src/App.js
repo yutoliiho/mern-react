@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-// import Provider from 'react-redux';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import store from './store';
+
 import AppNavbar from './components/AppNavbar';
 // import ItemModal from '../src/components/ItemModal';
 import ShoppingList from '../src/components/ShoppingList';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/App.css';
 
 function App() {
   return (
-    <div>
-      <AppNavbar />
-      <ShoppingList />
-    </div>
+    <Provider store={store}>
+      <div>
+        <AppNavbar />
+        <ShoppingList />
+      </div>
+    </Provider>
   );
 }
 
 export default App;
-
-// <ShoppingList />
