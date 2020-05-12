@@ -9,7 +9,7 @@ import {
   Label,
   Input,
 } from 'reactstrap';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
 
@@ -31,7 +31,7 @@ class ItemModal extends Component {
     e.preventDefault();
     const newItem = {
       //   name: this.state.name,
-      id: uuidv4(),
+      // id: uuidv4(),
       name: this.state.name,
     };
 

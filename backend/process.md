@@ -19,7 +19,7 @@ dev dependencies:
 # ================ client install ================
 
 cd client:
-$ npm install bootstrap reactstrap uuid react-transition-group
+$ npm install bootstrap reactstrap uuid react-transition-group axios
 $ npm i redux react-redux redux-thunk
 create store file: client/src/store.js (entray point for redux store)
 
@@ -434,3 +434,8 @@ export const ITEM_LOADING = 'ITEM_LOADING';
 $ sudo lsof -i :5000
 $ kill -9 {PID}
 means: (kill -9 47291)
+
+# 进程：
+
+stoped at: (10:23)
+https://www.youtube.com/watch?v=431EvDGKwks&list=PLillGF-RfqbbiTGgA77tGO426V3hRF9iE&index=7
